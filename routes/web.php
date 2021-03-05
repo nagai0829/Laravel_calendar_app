@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CalendarController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\Calendar\HolidaySettingController;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,6 +16,10 @@ use App\Http\Controllers\HomeController;
 |
 */
 
-Auth::routes();
 Route::get('/', [CalendarController::class, 'show']);
 Route::get('/home', [HomeController::class, 'index']);
+Route::get('/holiday_setting', [HolidaySettingController::class, 'form']);
+Route::post('/holiday_setting', [HolidaySettingController::class, 'update'])->name("update_holiday_setting");
+
+Auth::routes();
+
